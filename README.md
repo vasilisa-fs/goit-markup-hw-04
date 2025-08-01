@@ -1,3 +1,3 @@
-# goit-markup-hw-03
+# goit-markup-hw-04
 
-This is my third homework. Block model. Flexbox.
+This is my homework about decorative effects.
