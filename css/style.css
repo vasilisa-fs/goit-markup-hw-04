@@ -34,6 +34,8 @@ img {
 /* Header */
 .top {
   border-bottom: 1px solid #e7e9fc;
+  box-shadow: 0 1px 6px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 2px 1px 0 rgba(46, 47, 66, 0.08);
 }
 .top-container {
   display: flex;
@@ -73,9 +75,24 @@ img {
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.navigation-link.current {
+  position: relative;
+}
+.navigation-link.current::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: #404bbf;
 }
 .navigation-link:hover,
-.navigation-link:focus {
+.navigation-link:focus,
+.navigation-link.current {
   color: #404bbf;
 }
 
@@ -94,6 +111,7 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   color: #434455;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .contact-list-link:hover,
 .contact-list-link:focus {
@@ -105,8 +123,15 @@ img {
 /* First section Article*/
 .article {
   background-color: #2e2f42;
+  background-image: linear-gradient(
+      rgba(46, 47, 66, 0.7),
+      rgba(46, 47, 66, 0.7)
+    ),
+    url(../images/background_section_1.jpg);
   padding-top: 188px;
   padding-bottom: 188px;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .article-title {
@@ -137,6 +162,7 @@ img {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
   margin-left: auto;
   margin-right: auto;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .article-interactive:hover,
 .article-interactive:focus {
@@ -165,6 +191,17 @@ img {
 }
 .benefits-list-item {
   flex-basis: calc((100% - 72px) / 4);
+}
+.benefits-icons {
+  display: flex;
+  background-color: #f4f4fd;
+  border: 1px solid #8e8f99;
+  border-radius: 4px;
+  width: 264px;
+  height: 112px;
+  margin-bottom: 8px;
+  align-items: center;
+  justify-content: center;
 }
 
 .benefits-list-title {
@@ -206,8 +243,9 @@ img {
   box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
     0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
 }
+
 .team-item-person {
-  padding: 32px 0;
+  padding: 32px 16px;
 }
 .team-person-name {
   color: #2e2f42;
@@ -223,7 +261,30 @@ img {
   line-height: 1.5;
   letter-spacing: 0.02em;
   text-align: center;
+  margin-bottom: 8px;
 }
+.team-person-social-links{
+  display: flex;
+  justify-content: space-between;
+}
+.team-person-link{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4D5AE5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+}
+.team-person-link-icon {
+    fill: #F4F4FD;
+  }
+.team-person-link:hover{
+      background-color: #404BBF;
+}
+
 /* Forth section Portfolio*/
 .portfolio {
   padding: 120px 0;
@@ -247,6 +308,42 @@ img {
 }
 .portfolio-cards-item {
   flex-basis: calc((100% - 48px) / 3);
+  box-shadow: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-cards-photo {
+  position: relative;
+  overflow: hidden;
+}
+.portfolio-overlay-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #4d5ae5;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.portfolio-cards-item:hover {
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-cards-item:hover .portfolio-overlay-box {
+  transform: translateY(0);
+  box-shadow: 0 2px 1px 0 rgba(46, 47, 66, 0.08),
+    0 1px 1px 0 rgba(46, 47, 66, 0.16), 0 1px 6px 0 rgba(46, 47, 66, 0.08);
+}
+
+.portfolio-overlay-text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: #f4f4fd;
+  padding: 40px 32px 164px 32px;
 }
 .portfolio-app-name {
   color: #2e2f42;
@@ -273,8 +370,14 @@ img {
   background-color: #2e2f42;
   padding: 100px 0;
 }
+.container.bottom{
+  display: flex;
+  gap: 120px; 
+}
+.bottom-link{
 
-.bottom-logo {
+}
+.bottom-link-logo {
   display: inline-block;
   font-family: 'Raleway', sans-serif;
   color: #4d5ae5;
@@ -290,9 +393,40 @@ img {
   color: #f4f4fd;
 }
 
-.bottom-text {
+.bottom--link-text {
   color: #f4f4fd;
   line-height: 1.5;
   letter-spacing: 0.02em;
   max-width: 264px;
+}
+
+.bottom-media-text{
+font-weight: 500;
+font-size: 16px;
+line-height: 1.5;
+letter-spacing: 0.02em;
+color: #FFFFFF;
+margin-bottom: 16px;
+} 
+
+.bottom-media-links{
+  display: flex;
+  gap: 16px;
+}
+.bottom-social-link-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #4D5AE5;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  
+}
+.bottom-social-link-icon {
+    fill: #F4F4FD;
+  }
+.bottom-social-link-item:hover{
+      background-color: #404BBF;
 }
