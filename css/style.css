@@ -423,6 +423,7 @@ margin-bottom: 16px;
 .bottom-social-link-icon {
     fill: #F4F4FD;
 }
-.bottom-social-link-item:hover{
+.bottom-social-link-item:hover,
+.bottom-social-link-item:focus{
       background-color:  #31D0AA;
 }
